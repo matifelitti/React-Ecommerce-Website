@@ -1,0 +1,32 @@
+products = [
+  {
+    id: "1",
+    name: "Nike Air Max 95 OG 'Bright Mandarin'",
+    info: "Big. Bold. Bounce. To celebrate 30 years of the iconic silhouette, the Air Max family is welcoming back the 'Big Bubble' edition of the 95. With a design that stays true to the original, this iteration stacks the upper with rippling layers of synthetic leather and airy mesh that gradually fade from black to white. Pops of Bright Mandarin accentuate the lace loops, branding and Air units. Elevate your style with a little more Air and enjoy the future of your Air Max journey.",
+    brand: "Nike",
+    price: 210,
+    category: "shoes",
+    gender: "men",
+    img: "/img/men/1.jpeg",
+  },
+  {
+    id: "2",
+    name: "Nike Shox Ride 2 'Metallic Platinum'",
+    info: "A modern classic, this Nike Shox Ride 2 offers outstanding responsive cushioning with four columns of support under its heel and Max Air technology in the forefoot. And the breathable textile and genuine leather upper is comfortable and durable.",
+    brand: "Nike",
+    price: 150,
+    category: "shoes",
+    gender: "men",
+    img: "/img/men/2.jpeg",
+  },
+  {
+    id: "3",
+    name: "Nike Air Force 1 Low Retro 'Escape'",
+    info: "This 2002 edition of the Air Force 1 is back. It comes wrapped in full-grain leather and signature color blocking for a luxe look that's easy to style. And of course, Nike Air cushioning keeps it true to the original.",
+    brand: "Nike",
+    price: 165,
+    category: "shoes",
+    gender: "men",
+    img: "/img/men/3.jpeg",
+  },
+];
