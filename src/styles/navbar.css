@@ -11,36 +11,36 @@ body {
   width: 100%;
   background-color: #0f172a;
   padding: 2rem 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.6);
   z-index: 1000;
 }
 
 .navbar-content {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
-  position: relative;
 }
 
 .logo {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   color: #ffffff;
   font-weight: bold;
-  flex: 1;
-  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .links {
   position: absolute;
+  top: 30%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   gap: 2rem;
-  font-size: 1.3rem;
-  white-space: nowrap;
+  font-size: 1.2rem;
 }
 
 .links a {
@@ -55,4 +55,43 @@ body {
 .links a:hover {
   background-color: #334155;
   color: #60a5fa;
+}
+
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background-color: #0f172a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 0.25rem 0.75rem;
+  cursor: pointer;
+  position: absolute;
+  right: 5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .links {
+    position: fixed;
+    top: 59px;
+    left: 0;
+    transform: none;
+    flex-direction: column;
+    background-color: #0f172a;
+    display: none;
+    width: 100%;
+    padding: 1rem 0;
+    text-align: center;
+  }
+
+  .links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
 }
