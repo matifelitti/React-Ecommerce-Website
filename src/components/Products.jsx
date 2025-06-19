@@ -1,14 +1,15 @@
-import { products } from "../products.jsx";
 import "../styles/products.css";
 
-function Products() {
+function Products({ items = [] }) {
   return (
     <div className="product-grid">
-      {products.map((product) => (
+      {items.map((product) => (
         <div key={product.id} className="product-card">
-          <img src={product.img} alt={product.name} />
-          <h3>{product.name}</h3>
-          <div className="product-price">${product.price}</div>
+          <img src={product.img} alt={product.name} className="product-img" />
+          <div className="product-info">
+            <h3 className="product-name">{product.name}</h3>
+            <p className="product-price">${product.price}</p>
+          </div>
         </div>
       ))}
     </div>

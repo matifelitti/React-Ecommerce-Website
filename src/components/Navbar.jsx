@@ -3,7 +3,6 @@ import "../styles/navbar.css";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   const handleLinkClick = () => {
