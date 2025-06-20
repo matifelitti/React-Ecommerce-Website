@@ -3,34 +3,38 @@ import { products } from "../products";
 import Products from "./Products";
 import "../styles/productsByGender.css";
 
-function ProductsByGender() {
-  const [filtered, setFiltered] = useState(products);
+function ProductsByGender({ categoryFilter }) {
   const [active, setActive] = useState("all");
 
-  const filterProducts = (type) => {
-    setActive(type);
-    if (type === "all") return setFiltered(products);
-    setFiltered(products.filter((p) => p.gender === type));
+  const filterProducts = () => {
+    return products.filter((p) => {
+      const genderMatch = active === "all" || p.gender === active;
+      const categoryMatch =
+        categoryFilter === "all" || p.category === categoryFilter;
+      return genderMatch && categoryMatch;
+    });
   };
+
+  const filtered = filterProducts();
 
   return (
     <div>
       <div className="gender-filter">
         <button
           className={active === "all" ? "active" : ""}
-          onClick={() => filterProducts("all")}
+          onClick={() => setActive("all")}
         >
           All
         </button>
         <button
           className={active === "male" ? "active" : ""}
-          onClick={() => filterProducts("male")}
+          onClick={() => setActive("male")}
         >
           Men
         </button>
         <button
           className={active === "female" ? "active" : ""}
-          onClick={() => filterProducts("female")}
+          onClick={() => setActive("female")}
         >
           Women
         </button>
