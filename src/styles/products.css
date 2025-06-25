@@ -24,6 +24,7 @@ body {
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   padding-bottom: 1.5rem;
+  cursor: pointer;
 }
 
 .product-card:hover {

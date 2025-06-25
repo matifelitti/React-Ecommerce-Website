@@ -42,7 +42,7 @@ Follow these steps to get the project up and running locally.
 
    Visit http://localhost:5173 in your browser.
 
-🧪 Technologies Used
+## 🧪 Technologies Used
 
 - React
 - Vite

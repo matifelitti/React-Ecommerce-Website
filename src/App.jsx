@@ -1,15 +1,26 @@
 import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ProductsByGender from "./components/ProductsByGender";
-import "./App.css";
+import SelectedProduct from "./components/SelectedProduct";
+import { products } from "./products";
 
 function App() {
-  const [categoryFilter, setCategoryFilter] = useState("all");
+  const [category, setCategory] = useState("all");
 
   return (
     <>
-      <Navbar onFilterCategory={setCategoryFilter} />
-      <ProductsByGender categoryFilter={categoryFilter} />
+      <Navbar onCategoryChange={setCategory} />
+      <Routes>
+        <Route
+          path="/"
+          element={<ProductsByGender categoryFilter={category} />}
+        />
+        <Route
+          path="/product/:id"
+          element={<SelectedProduct products={products} />}
+        />
+      </Routes>
     </>
   );
 }

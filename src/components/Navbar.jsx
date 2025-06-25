@@ -1,12 +1,13 @@
 import { useState } from "react";
 import "../styles/navbar.css";
 
-function Navbar({ onFilterCategory }) {
+function Navbar({ onCategoryChange }) {
   const [menuOpen, setMenuOpen] = useState(false);
-  const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  const handleLinkClick = (category) => {
-    onFilterCategory(category);
+  const handleClick = (category) => {
+    if (onCategoryChange) {
+      onCategoryChange(category);
+    }
     setMenuOpen(false);
   };
 
@@ -14,7 +15,7 @@ function Navbar({ onFilterCategory }) {
     <div className="navbar">
       <div className="navbar-content">
         <div className="logo">MyStore</div>
-        <button className="hamburger" onClick={toggleMenu}>
+        <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
           ☰
         </button>
       </div>
@@ -23,7 +24,16 @@ function Navbar({ onFilterCategory }) {
           href="#"
           onClick={(e) => {
             e.preventDefault();
-            handleLinkClick("footwear");
+            handleClick("all");
+          }}
+        >
+          All Products
+        </a>
+        <a
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            handleClick("footwear");
           }}
         >
           Footwear
@@ -32,7 +42,7 @@ function Navbar({ onFilterCategory }) {
           href="#"
           onClick={(e) => {
             e.preventDefault();
-            handleLinkClick("apparel");
+            handleClick("apparel");
           }}
         >
           Apparel
@@ -41,19 +51,10 @@ function Navbar({ onFilterCategory }) {
           href="#"
           onClick={(e) => {
             e.preventDefault();
-            handleLinkClick("accessories");
+            handleClick("accessories");
           }}
         >
           Accessories
-        </a>
-        <a
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            handleLinkClick("all");
-          }}
-        >
-          All
         </a>
       </div>
     </div>

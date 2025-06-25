@@ -3,7 +3,7 @@ import { products } from "../products";
 import Products from "./Products";
 import "../styles/productsByGender.css";
 
-function ProductsByGender({ categoryFilter }) {
+function ProductsByGender({ categoryFilter = "all" }) {
   const [active, setActive] = useState("all");
 
   const filterProducts = () => {
