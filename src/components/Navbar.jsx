@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/navbar.css";
 
-function Navbar({ onCategoryChange }) {
+function Navbar({ onCategoryChange, cart }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 

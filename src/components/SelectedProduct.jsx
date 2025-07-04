@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import "../styles/selectedProduct.css";
 
-function SelectedProduct({ products }) {
+function SelectedProduct({ products, onAddToCart }) {
   const { id } = useParams();
   const product = products.find((p) => p.id === id);
 
@@ -14,6 +14,12 @@ function SelectedProduct({ products }) {
         <h2 className="selected-name">{product.name}</h2>
         <p className="selected-info">{product.info}</p>
         <p className="selected-price">${product.price}</p>
+        <button
+          className="add-to-cart-button"
+          onClick={() => onAddToCart(product)}
+        >
+          ADD TO CART
+        </button>
       </div>
     </div>
   );
