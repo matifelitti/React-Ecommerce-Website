@@ -1,8 +1,9 @@
 import "../styles/cart.css";
+import CartEmpty from "../components/CartEmpty";
 
 function Cart({ cart }) {
   if (cart.length === 0) {
-    return <p style={{ textAlign: "center" }}>Your cart is empty</p>;
+    return <CartEmpty />;
   }
 
   return (
