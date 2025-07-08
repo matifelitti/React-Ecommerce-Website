@@ -15,6 +15,10 @@ function App() {
     setCart((prev) => [...prev, product]);
   };
 
+  const removeFromCart = (indexToRemove) => {
+    setCart((prevCart) => prevCart.filter((_, i) => i !== indexToRemove));
+  };
+
   return (
     <>
       <Navbar onCategoryChange={setCategory} cart={cart} />
@@ -32,7 +36,10 @@ function App() {
             />
           }
         />
-        <Route path="/cart" element={<Cart cart={cart} />} />
+        <Route
+          path="/cart"
+          element={<Cart cart={cart} onRemoveFromCart={removeFromCart} />}
+        />
       </Routes>
     </>
   );
