@@ -1,29 +1,49 @@
 import "../styles/cart.css";
-import CartEmpty from "../components/CartEmpty";
+import CartEmpty from "./CartEmpty";
 
-function Cart({ cart, onRemoveFromCart }) {
-  if (cart.length === 0) {
-    return <CartEmpty />;
-  }
+function Cart({
+  cart,
+  onRemoveFromCart,
+  onIncreaseQuantity,
+  onDecreaseQuantity,
+}) {
+  if (cart.length === 0) return <CartEmpty />;
+
+  const totalPrice = cart.reduce(
+    (acc, item) => acc + item.price * item.quantity,
+    0
+  );
 
   return (
     <div className="cart-container">
       <h2>Your Cart</h2>
       <div className="cart-items">
-        {cart.map((item, index) => (
-          <div key={index} className="cart-item">
-            <img src={item.img} alt={item.name} />
-            <p>{item.name}</p>
+        {cart.map((item) => (
+          <div key={item.id} className="cart-item">
+            <img src={item.img} alt={item.name} className="cart-image" />
+            <div className="cart-details">
+              <p className="item-name">{item.name}</p>
+              <p className="unit-price">Unit: ${item.price}</p>
+              <p className="total-price">
+                Total: ${item.price * item.quantity}
+              </p>
+              <div className="quantity-controls">
+                <button onClick={() => onDecreaseQuantity(item.id)}>-</button>
+                <span>{item.quantity}</span>
+                <button onClick={() => onIncreaseQuantity(item.id)}>+</button>
+              </div>
+            </div>
             <img
-              src="/images/delete.svg"
+              src="/images/delete.png"
               alt="Delete"
               className="delete-icon"
-              onClick={() => onRemoveFromCart(index)}
+              onClick={() => onRemoveFromCart(item.id)}
               title="Remove item"
             />
           </div>
         ))}
       </div>
+      <h3 className="cart-total">Total: ${totalPrice.toFixed(2)}</h3>
     </div>
   );
 }
