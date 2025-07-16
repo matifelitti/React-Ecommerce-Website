@@ -28,7 +28,12 @@ function Cart({
                 Total: ${item.price * item.quantity}
               </p>
               <div className="quantity-controls">
-                <button onClick={() => onDecreaseQuantity(item.id)}>-</button>
+                <button
+                  onClick={() => onDecreaseQuantity(item.id)}
+                  disabled={item.quantity === 1}
+                >
+                  -
+                </button>
                 <span>{item.quantity}</span>
                 <button onClick={() => onIncreaseQuantity(item.id)}>+</button>
               </div>
@@ -43,7 +48,10 @@ function Cart({
           </div>
         ))}
       </div>
-      <h3 className="cart-total">Total: ${totalPrice.toFixed(2)}</h3>
+      <div className="cart-footer">
+        <button className="pay-button">Pay</button>
+        <h3 className="cart-total">Total: ${totalPrice.toFixed(2)}</h3>
+      </div>
     </div>
   );
 }

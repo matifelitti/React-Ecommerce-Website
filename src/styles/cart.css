@@ -87,6 +87,11 @@
   background-color: #cbd5e1;
 }
 
+.quantity-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .quantity-controls span {
   font-weight: bold;
   font-size: 1.05rem;
@@ -105,14 +110,36 @@
   transform: scale(1.2);
 }
 
-.cart-total {
-  text-align: right;
+.cart-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 2.5rem;
+  padding-top: 1rem;
+  border-top: 2px solid #cbd5e1;
+}
+
+.pay-button {
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.pay-button:hover {
+  background-color: #2563eb;
+}
+
+.cart-total {
   font-size: 1.3rem;
   font-weight: bold;
   color: #1e293b;
-  border-top: 2px solid #cbd5e1;
-  padding-top: 1rem;
+  margin: 0;
 }
 
 @media (max-width: 768px) {

@@ -14,6 +14,8 @@ function Navbar({ onCategoryChange, cart }) {
     setMenuOpen(false);
   };
 
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <div className="navbar">
       <div className="navbar-content">
@@ -58,12 +60,18 @@ function Navbar({ onCategoryChange, cart }) {
           >
             Accessories
           </a>
-          <img
-            src="/images/cart.svg"
-            alt="Cart"
-            className="cart-icon"
-            onClick={() => navigate("/cart")}
-          />
+          <div
+            className="cart-wrapper"
+            onClick={() => {
+              navigate("/cart");
+              setMenuOpen(false);
+            }}
+          >
+            <img src="/images/cart.svg" alt="Cart" className="cart-icon" />
+            {cart.length > 0 && (
+              <span className="cart-count">{cart.length}</span>
+            )}
+          </div>
         </div>
 
         <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
